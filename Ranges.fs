@@ -1,4 +1,4 @@
-namespace Own
+namespace Ranges
 
 module Range = 
     type WildCard = 

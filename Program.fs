@@ -1,4 +1,4 @@
-namespace Own
+namespace Ranges
 
 module Output =
     open FParsec
@@ -11,17 +11,20 @@ module Output =
         printfn ""
 
 module Main =  
-    open FParsec
     
     [<EntryPoint>]
     let main args =
         printfn ""
         printfn "Succeding ranges:"
-        List.iter (Output.Dump RangeParsers.rangeParser) [
+        Array.iter (Output.Dump RangeParsers.rangeParser) args
+        0
+        
+        // Examples of ranges
+        //[
             //"873xy+";
             //"!8Kxx";
             // "(873 , 2xy  ,8TJ+)"   
-            "(873 , 2xy  ,8TJ+) & !(72xy, 876) & 8JK+"   
+            // "(873, 2xy, 8TJ+) & !(72xy, 876) & 8JK+"   
             // "8TJx";  
             // "2xy"; 
             // "2xy+";   
@@ -31,13 +34,12 @@ module Main =
             // "FL2x";   
             // "25+x";   
             // "2Jx+y";   
-        ]
+        // ]
 
         // CardsParsers.values
         // |> Array.map (fun v -> CardsParsers.toValue v)
         // |> Array.iter (fun q -> printfn "value: %i" (Cards.getValueValue q))
 
-
         // printfn "value: %i" (CardsParsers.toValue 'r')
-       // printfn "WCparsed: %A" (run RangeParsers.typedAnyWildCardParser "z")
-        0
+        // printfn "WCparsed: %A" (run RangeParsers.typedAnyWildCardParser "z")
+        
