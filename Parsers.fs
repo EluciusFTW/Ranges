@@ -63,7 +63,8 @@ module RangeParsers =
         .>>. many WildCards.anyWildCardParser 
         .>>. Exactness.ExactnessParser 
         .>> spaces 
-        |>> (fun ((values, wildCards), exactness) -> Range.createSimpleRange values wildCards exactness) 
+        |>> (fun ((values, wildCards), exactness) -> Range.getAllValues values wildCards exactness)
+        // Range.createSimpleRange values wildCards exactness) 
 
     module Composition = 
         let OrCompositionParser = pchar ',' .>> spaces
